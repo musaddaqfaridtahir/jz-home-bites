@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JZ Home Bites | گھر جیسا، پیار بھرا ہر بائٹ میں</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              brown: '#2C1810',
+              gold: '#C59B27',
+              lightGold: '#E6CA65',
+              cream: '#FAF7F2',
+              card: '#FFFFFF',
+              accent: '#8B4513'
+            }
+          },
+          fontFamily: {
+            urdu: ["'Jameel Noori Nastaleeq'", "'Noto Nastaliq Urdu'", "serif"],
+            sans: ["'Poppins'", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF7F2;
+      font-family: 'Poppins', sans-serif;
+    }
+    .urdu-font {
+      font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif;
+    }
+  </style>
+</head>
+<body class="text-stone-800 pb-32">
+
+  <div class="bg-brand-brown text-amber-200 text-xs sm:text-sm py-2 px-4 text-center border-b border-brand-gold/40">
+    <i class="fa-solid fa-clock ml-1"></i> پری آرڈرز اور ٹیک اوے دستیاب ہیں | ڈیلیوری چارجز علیحدہ وصول کیے جائیں گے
+  </div>
+
+  <header class="bg-gradient-to-b from-[#2C1810] to-[#3D2314] text-white py-10 px-4 text-center shadow-lg relative">
+    <div class="max-w-2xl mx-auto space-y-4">
+      
+      <div class="w-28 h-28 mx-auto rounded-full bg-brand-cream p-1.5 shadow-xl border-2 border-brand-gold flex items-center justify-center">
+        <div class="text-center">
+          <span class="block text-2xl font-bold text-brand-brown tracking-tighter">J-Z</span>
+          <span class="block text-[10px] uppercase tracking-wider font-semibold text-brand-gold">Home Bites</span>
+        </div>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide text-amber-100">JZ HOME BITES</h1>
+      <p class="urdu-font text-2xl text-brand-lightGold">گھر جیسا، پیار بھرا ہر بائٹ میں</p>
+
+      <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20 text-xs sm:text-sm text-stone-200 italic max-w-md mx-auto leading-relaxed">
+        “ایک چھوٹا سا خواب تھا... اپنے ہاتھوں کے بنے کھانے سے لوگوں کے دل جیتنے کا۔ آج وہ خواب حقیقت بن رہا ہے۔”
+      </div>
+
+      <div class="flex flex-wrap justify-center items-center gap-3 pt-2 text-xs">
+        <span class="bg-white/15 px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-white/20">
+          <i class="fa-solid fa-location-dot text-brand-lightGold"></i> فتح شیر روڈ، گلستان کالونی، ساہیوال
+        </span>
+        <a href="tel:03107090143" class="bg-white/15 px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-white/20 hover:bg-white/30 transition">
+          <i class="fa-solid fa-phone text-brand-lightGold"></i> 0310-7090143
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 mt-6">
+
+    <section id="today-special-card" class="mb-8 p-5 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-brand-gold/60 rounded-2xl shadow-md">
+      <div class="flex items-center justify-between border-b border-brand-gold/30 pb-3 mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🔥</span>
+          <div>
+            <h2 class="font-bold text-brand-brown text-base sm:text-lg">آج کا خاص لنچ / ڈنر</h2>
+            <p id="current-day-name" class="text-xs text-stone-500 font-medium"></p>
+          </div>
+        </div>
+        <span class="bg-brand-brown text-brand-lightGold text-xs font-semibold px-3 py-1 rounded-full">تازہ ترین</span>
+      </div>
+      <div id="today-menu-content" class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        </div>
+    </section>
+
+    <div class="flex bg-stone-200/80 p-1 rounded-xl mb-6 shadow-inner gap-1 text-xs sm:text-sm font-semibold">
+      <button onclick="switchTab('nashta')" id="tab-nashta" class="flex-1 py-2.5 rounded-lg transition-all bg-white text-brand-brown shadow">
+        🍳 ناشتہ مینیو
+      </button>
+      <button onclick="switchTab('weekly')" id="tab-weekly" class="flex-1 py-2.5 rounded-lg transition-all text-stone-600 hover:text-brand-brown">
+        📅 ہفتہ وار کھانا
+      </button>
+      <button onclick="switchTab('drinks')" id="tab-drinks" class="flex-1 py-2.5 rounded-lg transition-all text-stone-600 hover:text-brand-brown">
+        🥤 شیکس و سائیڈز
+      </button>
+    </div>
+
+    <div id="section-nashta" class="space-y-6">
+      <div>
+        <h3 class="font-bold text-lg text-brand-brown mb-3 flex items-center gap-2 border-r-4 border-brand-gold pr-2">
+          تازہ پراٹھے اور انڈے
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="nashta-items-container">
+          </div>
+      </div>
+    </div>
+
+    <div id="section-weekly" class="hidden space-y-4">
+      <div class="bg-amber-100/60 p-3 rounded-lg border border-amber-300 text-xs text-amber-900 mb-3">
+        💡 برائے مہربانی لنچ کا آرڈر صبح 11 بجے سے پہلے اور ڈنر کا آرڈر شام 5:30 سے پہلے بک کروائیں۔
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="weekly-days-container">
+        </div>
+    </div>
+
+    <div id="section-drinks" class="hidden space-y-6">
+      <div>
+        <h3 class="font-bold text-lg text-brand-brown mb-3 flex items-center gap-2 border-r-4 border-brand-gold pr-2">
+          ملک شیکس اور تازہ جوسز
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="shakes-container"></div>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-lg text-brand-brown mb-3 flex items-center gap-2 border-r-4 border-brand-gold pr-2">
+          ایکسٹرا چوائس (Side Orders)
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="extras-container"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 shadow-2xl p-4 z-50">
+    <div class="max-w-2xl mx-auto flex items-center justify-between gap-3">
+      <div>
+        <span class="text-xs text-stone-500 block">آپ کا منتخب کردہ کھانا:</span>
+        <div class="font-bold text-brand-brown text-sm sm:text-base">
+          <span id="cart-count">0</span> اشیاء | <span id="cart-total" class="text-emerald-700">Rs. 0</span>
+        </div>
+      </div>
+      <button onclick="openOrderModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-5 rounded-xl shadow-lg flex items-center gap-2 text-sm sm:text-base transition">
+        <i class="fa-brands fa-whatsapp text-lg"></i> واٹس ایپ پر آرڈر بھیجیں
+      </button>
+    </div>
+  </div>
+
+  <div id="order-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-5 space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h4 class="font-bold text-brand-brown text-lg">آرڈر کی تفصیلات</h4>
+        <button onclick="closeOrderModal()" class="text-stone-400 hover:text-stone-700 text-xl font-bold">&times;</button>
+      </div>
+
+      <div id="modal-cart-summary" class="bg-stone-50 p-3 rounded-lg text-xs space-y-1.5 max-h-40 overflow-y-auto border">
+        </div>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        <div>
+          <label class="block text-stone-600 mb-1 font-semibold">آپ کا نام (Name):</label>
+          <input id="cust-name" type="text" placeholder="مثلاً: احمد رضا" class="w-full border rounded-lg p-2.5 outline-none focus:border-brand-gold">
+        </div>
+        <div>
+          <label class="block text-stone-600 mb-1 font-semibold">مکمل پتہ / دفتر کی لوکیشن (Address):</label>
+          <textarea id="cust-address" rows="2" placeholder="گلی / محلہ یا آفس ایڈریس ساہیوال" class="w-full border rounded-lg p-2.5 outline-none focus:border-brand-gold"></textarea>
+        </div>
+        <div>
+          <label class="block text-stone-600 mb-1 font-semibold">آرڈر کی قسم:</label>
+          <select id="cust-type" class="w-full border rounded-lg p-2.5 outline-none focus:border-brand-gold bg-white">
+            <option value="ڈیلیوری (Delivery)">گھر / دفتر ڈیلیوری</option>
+            <option value="ٹیک اوے (Self Pickup)">خود آ کر پارسل لینا ہے (Takeaway)</option>
+          </select>
+        </div>
+      </div>
+
+      <button onclick="sendOrderToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition">
+        <i class="fa-brands fa-whatsapp text-lg"></i> واٹس ایپ میسج کھولیں
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ڈیٹا لسٹ
+    const nashtaData = [
+      { name: "Allu wala paratha (آلو والا پراٹھا)", price: 120 },
+      { name: "Allu chicken paratha (آلو چکن پراٹھا)", price: 160 },
+      { name: "Anda paratha (انڈا پراٹھا)", price: 120 },
+      { name: "Shami paratha (شامی پراٹھا)", price: 120 },
+      { name: "Sada paratha (سادہ پراٹھا)", price: 80 },
+      { name: "Fry anda (فرائی انڈا)", price: 50 },
+      { name: "Half fry anda (ہاف فرائی انڈا)", price: 50 },
+      { name: "Omelette (آملیٹ)", price: 70 },
+      { name: "Kagina (خاگینہ)", price: 100 },
+      { name: "Tea (گرما گرم چائے)", price: 70 },
+      { name: "Fresh Lassi (فریش لسی)", price: 120 },
+      { name: "Cold drink (کولڈ ڈرنک)", price: 80 }
+    ];
+
+    const weeklyData = [
+      { day: "Monday (پیر)", dish: "Alo Qeema + Ghar ki Sabzi", sweet: "Kheer" },
+      { day: "Tuesday (منگل)", dish: "Chicken Pulao + Chicken Kofta", sweet: "Zarda Chawal" },
+      { day: "Wednesday (بدھ)", dish: "Daal Chawal + Curry Pakora", sweet: "Kheer" },
+      { day: "Thursday (جمعرات)", dish: "Chicken Handi + Ghar ki Sabzi", sweet: "Jelly Custard" },
+      { day: "Friday (جمعہ)", dish: "Chicken Biryani + Crispy Chicken", sweet: "Gur Waly Chawal" },
+      { day: "Saturday (ہفتہ)", dish: "Alo Ghosht + Daal Mash", sweet: "Jelly Custard" },
+      { day: "Sunday (اتوار)", dish: "Chicken Fried Rice + Crispy Chicken", sweet: "Fruit Salad" }
+    ];
+
+    const shakesData = [
+      "Mango Shake", "Strawberry Shake", "Chocolate Shake", 
+      "Banana Shake", "Lemon Juice", "Fresh Lime", "Mint Margarita"
+    ];
+
+    const extrasData = [
+      "Rotti (روٹی)", "Shami Kabaab (شامی کباب)", "Chicken Wings (چکن ونگز)", 
+      "Fresh Salad (فریش سلاد)", "Raita of the Day (رائتہ)", "Sweet of the Day (میٹھا)"
+    ];
+
+    let cart = {};
+
+    // رینڈر ناشتہ
+    function renderNashta() {
+      const container = document.getElementById('nashta-items-container');
+      container.innerHTML = nashtaData.map(item => `
+        <div class="bg-white p-3.5 rounded-xl border border-stone-200 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="font-semibold text-stone-800 text-sm">${item.name}</div>
+            <div class="text-xs text-emerald-700 font-bold mt-0.5">Rs. ${item.price}</div>
+          </div>
+          <button onclick="addToCart('${item.name}', ${item.price})" class="bg-amber-100 hover:bg-amber-200 text-brand-brown text-xs font-bold px-3 py-1.5 rounded-lg transition border border-amber-300">
+            + شامل کریں
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // رینڈر ہفتہ وار
+    function renderWeekly() {
+      const container = document.getElementById('weekly-days-container');
+      container.innerHTML = weeklyData.map(item => `
+        <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-brand-brown text-sm">${item.day}</span>
+            <button onclick="addToCart('${item.dish} (${item.day})', 0)" class="text-xs bg-stone-100 hover:bg-stone-200 border px-2.5 py-1 rounded-md text-stone-700 font-medium">
+              + مینیو آرڈر کریں
+            </button>
+          </div>
+          <div class="text-xs text-stone-700"><span class="font-semibold text-amber-800">کھانا:</span> ${item.dish}</div>
+          <div class="text-xs text-stone-500"><span class="font-semibold text-amber-800">میٹھی ڈش:</span> ${item.sweet}</div>
+        </div>
+      `).join('');
+    }
+
+    // رینڈر شیکس اور ایکسٹراز
+    function renderDrinksAndExtras() {
+      const shakesContainer = document.getElementById('shakes-container');
+      shakesContainer.innerHTML = shakesData.map(shake => `
+        <div class="bg-white p-3 rounded-xl border border-stone-200 shadow-sm flex justify-between items-center">
+          <span class="text-sm font-medium text-stone-800">${shake}</span>
+          <button onclick="addToCart('${shake}', 0)" class="text-xs bg-amber-50 hover:bg-amber-100 border border-amber-300 px-2.5 py-1 rounded text-brand-brown font-semibold">+ ایڈ کریں</button>
+        </div>
+      `).join('');
+
+      const extrasContainer = document.getElementById('extras-container');
+      extrasContainer.innerHTML = extrasData.map(extra => `
+        <div class="bg-white p-3 rounded-xl border border-stone-200 shadow-sm flex justify-between items-center">
+          <span class="text-sm font-medium text-stone-800">${extra}</span>
+          <button onclick="addToCart('${extra}', 0)" class="text-xs bg-amber-50 hover:bg-amber-100 border border-amber-300 px-2.5 py-1 rounded text-brand-brown font-semibold">+ ایڈ کریں</button>
+        </div>
+      `).join('');
+    }
+
+    // خودکار طریقہ برائے آج کا دن
+    function initTodaySpecial() {
+      const days = ["Sunday (اتوار)", "Monday (پیر)", "Tuesday (منگل)", "Wednesday (بدھ)", "Thursday (جمعرات)", "Friday (جمعہ)", "Saturday (ہفتہ)"];
+      const todayIndex = new Date().getDay();
+      const currentDayString = days[todayIndex];
+      const todayItem = weeklyData.find(w => w.day.includes(currentDayString.split(' ')[0]));
+
+      document.getElementById('current-day-name').innerText = currentDayString;
+      if(todayItem) {
+        document.getElementById('today-menu-content').innerHTML = `
+          <div>
+            <div class="text-base font-bold text-stone-900">${todayItem.dish}</div>
+            <div class="text-xs text-stone-600 mt-1">ساتھ میٹھا: <span class="font-semibold text-brand-accent">${todayItem.sweet}</span></div>
+          </div>
+          <button onclick="addToCart('${todayItem.dish} (آج کا لنچ/ڈنر)', 0)" class="bg-brand-brown hover:bg-stone-900 text-amber-200 text-xs font-bold px-4 py-2.5 rounded-xl shadow transition whitespace-nowrap">
+            + آج کا کھانا آرڈر کریں
+          </button>
+        `;
+      }
+    }
+
+    // کارٹ کے فنکشنز
+    function addToCart(name, price) {
+      if (cart[name]) {
+        cart[name].qty += 1;
+      } else {
+        cart[name] = { price: price, qty: 1 };
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      let totalQty = 0;
+      let totalPrice = 0;
+      for (let k in cart) {
+        totalQty += cart[k].qty;
+        totalPrice += cart[k].price * cart[k].qty;
+      }
+      document.getElementById('cart-count').innerText = totalQty;
+      document.getElementById('cart-total').innerText = totalPrice > 0 ? `Rs. ${totalPrice}` : "حسبِ انتخاب";
+    }
+
+    // ٹیب سوئچنگ
+    function switchTab(tab) {
+      ['nashta', 'weekly', 'drinks'].forEach(t => {
+        document.getElementById(`section-${t}`).classList.add('hidden');
+        document.getElementById(`tab-${t}`).className = "flex-1 py-2.5 rounded-lg transition-all text-stone-600 hover:text-brand-brown";
+      });
+      document.getElementById(`section-${tab}`).classList.remove('hidden');
+      document.getElementById(`tab-${tab}`).className = "flex-1 py-2.5 rounded-lg transition-all bg-white text-brand-brown shadow font-bold";
+    }
+
+    // ماڈل کنٹرول
+    function openOrderModal() {
+      const keys = Object.keys(cart);
+      if(keys.length === 0) {
+        alert("برائے مہربانی مینیو سے پہلے کوئی ڈش منتخب فرمائیں!");
+        return;
+      }
+      const summary = document.getElementById('modal-cart-summary');
+      let html = "";
+      let total = 0;
+      keys.forEach(k => {
+        const itemTotal = cart[k].price * cart[k].qty;
+        total += itemTotal;
+        html += `<div class="flex justify-between items-center py-1 border-b border-stone-200">
+          <span>${cart[k].qty}x ${k}</span>
+          <span class="font-semibold">${itemTotal > 0 ? 'Rs. ' + itemTotal : 'TBD'}</span>
+        </div>`;
+      });
+      summary.innerHTML = html;
+      document.getElementById('order-modal').classList.remove('hidden');
+    }
+
+    function closeOrderModal() {
+      document.getElementById('order-modal').classList.add('hidden');
+    }
+
+    // واٹس ایپ جنریٹر
+    function sendOrderToWhatsApp() {
+      const name = document.getElementById('cust-name').value.trim();
+      const address = document.getElementById('cust-address').value.trim();
+      const type = document.getElementById('cust-type').value;
+
+      if(!name || !address) {
+        alert("برائے مہربانی اپنا نام اور پتہ درج کریں۔");
+        return;
+      }
+
+      let msg = `*السلام علیکم JZ Home Bites!* 🍽️\nمجھے کھانے کا آرڈر درج کروانا ہے:\n\n*آرڈر تفصیلات:*\n`;
+      let total = 0;
+      for (let k in cart) {
+        const cost = cart[k].price * cart[k].qty;
+        total += cost;
+        msg += `▪️ ${cart[k].qty}x ${k} ${cost > 0 ? `(Rs. ${cost})` : ''}\n`;
+      }
+
+      if(total > 0) {
+        msg += `\n*کل رقم:* Rs. ${total} (ڈیلیوری الگ)`;
+      }
+      msg += `\n*آرڈر کا طریقہ:* ${type}`;
+      msg += `\n*گاہک کا نام:* ${name}`;
+      msg += `\n*پتہ / لوکیشن:* ${address}`;
+      msg += `\n\nبرائے مہربانی تصدیق فرمائیں۔ شکریہ!`;
+
+      const whatsappUrl = `https://wa.me/923107090143?text=${encodeURIComponent(msg)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // لوڈنگ کے وقت چلائیں
+    window.onload = () => {
+      renderNashta();
+      renderWeekly();
+      renderDrinksAndExtras();
+      initTodaySpecial();
+    };
+  </script>
+</body>
+</html>
